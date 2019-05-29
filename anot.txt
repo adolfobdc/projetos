@@ -1,0 +1,266 @@
+
+ruby teste.rb
+pry
+
+4] pry(main)> if a<b
+[4] pry(main)*   puts "OK"
+[4] pry(main)* end  
+OK
+=> nil
+[5] pry(main)> while a<10
+[5] pry(main)*   puts a
+[5] pry(main)*   a=a+1
+[5] pry(main)* end
+
+##Criando um Array
+array_a = []       ou         array_b = Array.new
+array_c = %w(aprendendo a progromar ruby)
+=> []
+[2] pry(main)> array_a
+array_a
+[2] pry(main)> array_a.push[98]
+[4] pry(main)> array_a.push(98)
+[7] pry(main)> puts array_a
+array_a.push("sd")
+
+#Hash
+[11] pry(main)> meu_hash = {"abc" => "rails", "def" => "ruby"}
+=> {"abc"=>"rails", "def"=>"ruby"}
+[12] pry(main)> puts meu_hash
+{"abc"=>"rails", "def"=>"ruby"}
+=> nil
+[13] pry(main)> puts meu_hash["abc"]
+rails
+
+##Metodo
+=Acao de um objeto
+[18] pry(main)> array_b.size
+=> 2
+[20] pry(main)> array_b.size.eql?(3)
+=> false
+[21] pry(main)> array_b.size.eql?(2)
+=> true
+
+##Bloco
+[22] pry(main)> array_b.each do |elm|
+[22] pry(main)*   puts elm
+[22] pry(main)* end  
+323
+teste
+=> [323, "teste"]
+
+##Classe
+[23] pry(main)> a = 123
+=> 123
+[24] pry(main)> a.class
+=> Integer
+[25] pry(main)> class Pessoa
+[25] pry(main)*   def falar
+[25] pry(main)*     puts "Falando"
+[25] pry(main)*   end  
+[25] pry(main)* end  
+=> :falar
+[26] pry(main)> pss = Pessoa.new
+=> #<Pessoa:0x000055943ab3cd28>
+[27] pry(main)> pss.falar
+Falando
+=> nil
+[28] pry(main)> pss.class
+=> Pessoa
+
+root@server:/home/adolfo/Documentos# cd /projetos/site/tmp/
+root@server:/projetos/site/tmp# pry
+[1] pry(main)> require_relative "pessoa"
+=> true
+[2] pry(main)> teste = Pessoa.new
+=> #<Pessoa:0x0000563c5199b6a8>
+[3] pry(main)> puts teste.falar
+Falando
+
+##Heranca
+[2] pry(main)> require_relative "atleta"
+=> true
+[3] pry(main)> atl = Atleta.new
+=> #<Atleta:0x000055e894fb4208>
+[4] pry(main)> atl.class
+=> Atleta
+[5] pry(main)> atl.correr
+Correndo!
+=> nil
+[6] pry(main)> atl.falar
+Falando
+
+##Modulo
+[8] pry(main)> require_relative "meu_modulo"
+=> true
+[9] pry(main)> Configuracoes::NOME_DO_SISTEMA
+=> "Sistema de Academia"
+[10] pry(main)> include Configuracoes
+=> Object
+
+##Classe recebendo 2 modulos
+[11] pry(main)> require_relative "meu_mixim"
+=> true
+[[13] pry(main)> mm = MeuMixin.new
+=> #<MeuMixin:0x000055e894f8dbd0>
+[14] pry(main)> mm.calcular
+O resultado final e tanto....
+=> nil
+[15] pry(main)> mm.enviar_correio
+enviando.....
+
+
+##yield
+[16] pry(main)> def ola
+[16] pry(main)*   puts "Ola Ola Ola"
+[16] pry(main)*   yield
+[16] pry(main)*   puts "Oi OI OI"
+[16] pry(main)* end  
+=> :ola
+[17] pry(main)> ola
+Ola Ola Ola
+LocalJumpError: no block given (yield)
+[19] pry(main)> ola {puts "Codigo do meio"}
+Ola Ola Ola
+Codigo do meio
+Oi OI OI
+
+##BANCO DE DADOS
+config/database.yml
+rails new site --database=mysql
+rails s -e test
+rails s -e development
+rails s -e production
+rake tasks
+rake db:create
+COC - Convention over configuration
+CRUD - Create , read, update e delete
+SCAFFOLD - andaime - facilitar cadastros
+rails generate
+##rails generate scaffold customer - no singular, convencao - modelos de CRUD
+tabelas do banco de dados no plural - convencao
+rails generate scaffold customer name:string email:string birtday:date obs:text
+rails Generate Gera MVC nas pastas - gera um migrate no db
+migrate - 
+	timestamps
+		created_at
+		updated_at
+rake db:migrate - cria a partir do migrate
+db/schema.rb - controla o que foi criado no banco de dados
+
+VIEW
+<% %> - codigo ruby que nao modifica o html
+<%= %> - modifica o html
+<%= -%> - tira a quebra de linha
+<%#= -%> - comenta a linha
+
+##Interpolacao de variaveis
+	<%= "Variavel a #{a} Variavel #{b}"%>
+
+
+MODELS
+##ApplicationRecord
+	Framework que faz a ligacao da tabela com uma classe do ruby, model/custumer.rb , 
+	rails console - carrega todas as classes disponiveis
+	a = Customer.first
+	a.name - traz o nome que esta gravado na tabela
+
+CONTROLLERS
+para cada acao do controler tem uma view.
+
+VARIAVEL DE INSTANCIA
+deixa a varivel disponivel do controler na view
+
+rails g controller welcome
+
+ROTAS
+config/routes.rb
+define o get do navegador que sera exibido referenciando qual model sera usado
+
+##HELPERS -- codigo ruby para gerar html
+link_to
+http://localhost:3000/rails/info/routes
+customers_path
+
+REST
+	create > post
+	read > get
+	update > put
+	delete > delete
+
+##SYMBOLS e Strings
+:texto     "texto"
+.object_id - mostra o id do objeto, tudo no rails e objeto
+[1] pry(main)> "rails".class
+=> String
+[2] pry(main)> "rails".object_id
+=> 47383182598000
+[3] pry(main)> "rails".object_id
+=> 47383182648680
+[4] pry(main)> "rails".object_id
+=> 47383179732760
+[5] pry(main)> :rails.object_id
+=> 2578268
+[6] pry(main)> :rails.object_id
+=> 2578268
+[7] pry(main)> :rails.object_id
+=> 2578268
+[8] pry(main)> :rails.class
+=> Symbol
+
+##Active Records - framework contido no rails que persiste os dados
+	x = Customer.new
+	x = Customer.all
+  Customer Load (1.1ms)  SELECT  `customers`.* FROM `customers` LIMIT 11
+=> #<ActiveRecord::Relation [#<Customer id: 1, name: "Adolfo", email: "adolfo@adolfo.com.br", birtday: "2014-05-26", obs: "TEste", created_at: "2019-05-26 10:50:20", updated_at: "2019-05-26 10:50:20">, #<Customer id: 2, name: "Carol", email: "carol@carol.com", birtday: "2019-05-26", obs: "ksddf", created_at: "2019-05-26 10:51:21", updated_at: "2019-05-26 10:51:21">]>
+	y = Customer.where(id: 1)
+  Customer Load (215.2ms)  SELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 1 LIMIT 11
+=> #<ActiveRecord::Relation [#<Customer id: 1, name: "Adolfo", email: "adolfo@adolfo.com.br", birtday: "2014-05-26", obs: "TEste", created_at: "2019-05-26 10:50:20", updated_at: "2019-05-26 10:50:20">]>
+	z = Customer.create(name: "Heloisa", email: "heloisa@gmail", birtday: Date.today, obs: "blabla")
+   (0.7ms)  BEGIN
+  Customer Create (28.9ms)  INSERT INTO `customers` (`name`, `email`, `birtday`, `obs`, `created_at`, `updated_at`) VALUES ('Heloisa', 'heloisa@gmail', '2019-05-26', 'blabla', '2019-05-26 18:53:07', '2019-05-26 18:53:07')
+   (135.7ms)  COMMIT
+=> #<Customer id: 3, name: "Heloisa", email: "heloisa@gmail", birtday: "2019-05-26", obs: "blabla", created_at: "2019-05-26 18:53:07", updated_at: "2019-05-26 18:53:07">
+	w = Customer.new
+=> #<Customer id: nil, name: nil, email: nil, birtday: nil, obs: nil, created_at: nil, updated_at: nil>
+irb(main):010:0> w.name = "Aurora"
+=> "Aurora"
+irb(main):011:0> w.email = "aurora@aurora"
+=> "aurora@aurora"
+irb(main):012:0> w.birtday = Date.today
+=> Sun, 26 May 2019
+irb(main):013:0> w.obs = "adasda"
+=> "adasda"
+irb(main):014:0> w
+=> #<Customer id: nil, name: "Aurora", email: "aurora@aurora", birtday: "2019-05-26", obs: "adasda", created_at: nil, updated_at: nil>
+irb(main):015:0> w.save
+   (0.7ms)  BEGIN
+  Customer Create (1.5ms)  INSERT INTO `customers` (`name`, `email`, `birtday`, `obs`, `created_at`, `updated_at`) VALUES ('Aurora', 'aurora@aurora', '2019-05-26', 'adasda', '2019-05-26 18:58:06', '2019-05-26 18:58:06')
+   (94.0ms)  COMMIT
+=> true
+irb(main):016:0> w
+=> #<Customer id: 4, name: "Aurora", email: "aurora@aurora", birtday: "2019-05-26", obs: "adasda", created_at: "2019-05-26 18:58:06", updated_at: "2019-05-26 18:58:06">
+irb(main):017:0> 
+
+
+Filtros
+	before_action - e executado antes de uma acao do controler
+	before_action :set_customer, only: [:show, :edit, :update, :destroy]
+	def set_customer
+      @customer = Customer.find(params[:id])
+    end
+
+PARTIALS
+	inicia com _ algo compartilhado com outras telas, exemplo new e edit
+	_sua_partial.html.erb
+
+HELPERS
+	
+i18n
+	Internacionalizacao
+	application.rb - config.i18n.default_locale = "pt-BR"
+	locales - pt-br.yml
+	i18.t - traduz textos
+	i18.l - Localiza data e hora
+	t('hello')
+	l (data)

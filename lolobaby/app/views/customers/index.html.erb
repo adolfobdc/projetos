@@ -1,13 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Clientes</h1>
-
-<% a = "Rails" %>
-<% b = "Ruby" %>
-
-texto A ------- <%= a %>
-
-<%= "Variavel a #{a} Variavel #{b}"%>
+<h1>Customers</h1>
 
 <table>
   <thead>
@@ -25,7 +18,7 @@ texto A ------- <%= a %>
       <tr>
         <td><%= customer.name %></td>
         <td><%= customer.email %></td>
-        <td><%= l(customer.birtday) %></td>
+        <td><%= customer.birtday %></td>
         <td><%= customer.obs %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
