@@ -1,0 +1,12 @@
+"pt-BR":
+  activerecord:
+    models:
+      customer: Cliente
+    attributes:
+      customer:
+            id: "Identificador"
+            name: "Nome"
+            email: "Email"
+            birtday: "Aniversario"
+            obs: "Observacao"
+            created_at: "Criado em"

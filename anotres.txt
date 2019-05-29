@@ -1,0 +1,27 @@
+
+rails new site --database=mysql
+rails s -e test
+rails s -e development
+rails s -e production
+rake tasks
+rake db:create
+rails generate scaffold customer name:string email:string birtday:date obs:text
+rake db:migrate 
+rails g controller welcome
+
+git config --global color.ui true
+git config --global user.name "Adolfo Prenholato"
+git config --global user.email "dorfo@protonmail.com"
+ssh -T git@github.com
+git remote add origin git@github.com:adolfobdc/projetos.git
+git init
+git status
+git add -A
+git commit -m "Projetos 002"
+git push -u origin master
+
+rails generate bootstrap:install less
+rails generate bootstrap:install static
+rails g bootstrap:layout application fluid
+rails g bootstrap:themed Customers
+

@@ -264,3 +264,6 @@ i18n
 	i18.l - Localiza data e hora
 	t('hello')
 	l (data)
+Git Hub Bootstrap
+
+i18n
