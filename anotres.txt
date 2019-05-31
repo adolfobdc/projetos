@@ -25,3 +25,22 @@ rails generate bootstrap:install static
 rails g bootstrap:layout application fluid
 rails g bootstrap:themed Customers
 
+PROJETO REMEMBER
+rails new remember -database=mysql
+Primeiro arquivo a ser configurado é o database.yml
+rake db:create
+rails g scaffold Annotation body:text
+rails g scaffold Friend name:string address:string email:string phone:string
+rake db:migrate
+http://localhost:3000/rails/info/routes
+http://localhost:3000/annotations/
+http://localhost:3000/friends
+rails g controller welcome index
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+bundle install
+rails generate bootstrap:install less
+rails g bootstrap:layout application fluid
+rails g bootstrap:themed Annotations
+rails g bootstrap:themed Friends

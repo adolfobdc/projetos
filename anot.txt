@@ -287,3 +287,27 @@ rails generate bootstrap:install less
 rails g bootstrap:layout application fluid
 rails g bootstrap:themed Annotations
 rails g bootstrap:themed Friends
+
+Aula 021 - ##Rails Composer
+rails new myapp -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
+
+Aula 022 - DB:SEED
+rails new raketest -B
+rails g scaffold User name:string email:string
+rake -T
+rake -T db -- parametro de filtragem
+rake db:crete db:migrate
+rake db:seed - popula o DB usando o arquivo dg/seed.rb
+	10.times do |i|
+      puts "Cadastrando o usuario - #{i}"
+      User.create(name: "User#{i}", email: "user@user#{i}")
+    end
+gem 'faker'
+     10.times do |i|
+	   user_name = Faker::Name.name
+	   user_email = Faker::Internet.email
+	   user = "#{user_name} - #{user_email}"
+       puts "Cadastrando o usuario - #{user}"
+       User.create(name: user_name, email: user_email)
+     end
+   config.i18n.default_locale = "pt-BR"
