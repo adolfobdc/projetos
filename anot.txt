@@ -311,3 +311,29 @@ gem 'faker'
        User.create(name: user_name, email: user_email)
      end
    config.i18n.default_locale = "pt-BR"
+
+
+##AULA 23
+rails g task utils setup-user
+rake utils:setup_user QTD=15
+ARGV - retorna o parametro passado para o rake
+ENV - pega o valor do parametro passado no rake
+
+##AULA 24 e 25
+Associacoes - 
+	belongs_to - pertence a 
+	has_many - tem muitos
+rails g model Father name:string
+rails g model Child name:sting father:references
+pai = Father.create(name: "Adolfo")
+filho = Child.create(name: "Heloisa")
+filho.father = pai
+filho.father
+filho.save!
+pai.children.create(name: "Aurora")
+
+##AULA 26
+add new coluns in table
+rails generate migration AddFieldsToFather cpf:string email:string occupation:references
+rake db:migrate
+ 
