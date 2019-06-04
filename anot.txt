@@ -337,3 +337,16 @@ add new coluns in table
 rails generate migration AddFieldsToFather cpf:string email:string occupation:references
 rake db:migrate
  
+
+##AULA 28 - Validacoes
+sempre em models:
+validates :name, presence: true
+validates :email, uniqueness: true
+CRIAR METODO NO MODEL
+	def occupation_description
+		if self.occupation.blank?
+			" - "
+		else
+			self.occupation.description
+		end
+	end

@@ -1,32 +1,48 @@
-<%= form_with(model: child, local: true) do |form| %>
-  <% if child.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(child.errors.count, "error") %> prohibited this child from being saved:</h2>
+<%= form_for @child, :html => { :class => "form-horizontal child" } do |f| %>
 
-      <ul>
-      <% child.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @child.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @child.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sex, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :sex, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:sex) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :father_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:father_id) %>
   </div>
 
-  <div class="field">
-    <%= form.label :sex %>
-    <%= form.select(:sex, options_for_select([["Masculino", "M"], ["Feminino", "F"]], @child.sex), { include_blank: "Selecione" }) %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                children_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :father_id %>
-    <%= form.collection_select(:father_id, @fathers, :id, :name, include_blank: true) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

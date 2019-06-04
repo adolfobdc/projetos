@@ -1,0 +1,26 @@
+"pt-BR":
+  activerecord:
+    models:
+      father: Pais
+      child: Crianca
+      occupation: Profissoe
+    attributes:
+      father:
+        id: "Codigo"
+        name: "Nome"
+        email: "Email"
+        description: "Profissao"
+        created_at: "Criado em"
+        updates_at: "Atualizado em"
+      child:
+        id: "Codigo"
+        name: "Nome"
+        sex: "Genero"
+        father: "pai"
+        created_at: "Criado em"
+        updates_at: "Atualizado em"
+      occupation:
+        id: "Codigo"
+        description: "Profissao"
+        created_at: "Criado em"
+        updates_at: "Atualizado em"
