@@ -21,6 +21,17 @@
     <%= form.text_field :email %>
   </div>
 
+  <%= form.fields_for :address do |ff|%>
+      <div class="field">
+        <%= ff.label :street %>
+        <%= ff.text_field :street %>
+      </div>
+      <div class="field">
+        <%= ff.label :zip %>
+        <%= ff.text_field :zip %>
+      </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
