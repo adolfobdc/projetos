@@ -5,6 +5,7 @@ class Father < ApplicationRecord
 	validates :name, presence: true
 	validates :email, presence: true, uniqueness: true
 
+
 	def occupation_description
 		if self.occupation.blank?
 			" - "

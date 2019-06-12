@@ -350,3 +350,82 @@ CRIAR METODO NO MODEL
 			self.occupation.description
 		end
 	end
+
+##AULA 29
+gem paperclip
+apt-get install imagemagic
+rails generate paperclip father avatar
+
+##AULA 31
+Self
+Monkey Patch - REabrir a classe e reutilizar
+String.class_eval do
+	def Ola
+		puts "ola #{self}"
+	end
+end
+
+
+##AULA 33
+Metodos de instancias - o que vimos ate agora
+Metodos de Classe
+	classe teste
+		def self.opa
+			puts "opa"
+		end
+	end
+instance eval - modifica apenas a instancia
+
+
+
+##AULA 34
+Sigleton Pattern - Design Pattern
+
+requite 'singleton'
+class Foobar
+	include Singleton
+	def oi
+		puts "oi"
+	end
+end
+
+Foobar.instance.oi - so funciona assim
+
+Sigleton Class -  
+class << y
+	def ola
+		puts "ola"
+	end
+end
+
+
+
+##AULA 36
+Metodo de Classe:
+	class Customer < ApplicationRecord
+	def self.search(query)
+		where("name like ?", "%#{query}%")
+	end
+end
+
+def index
+    if params[:search]
+      @customers = Customer.search(params[:search])
+    else
+      @customers = Customer.all
+    end
+  end
+
+Scopes
+scope :search, ->(query) { where("name like ?", "%#{query}%") }
+
+##AULA 37
+customer = Customer.new(name: "fulano", email: "emails@email.com)
+customer.build_address(street: "rua tal", zip: "4232")
+NestedAttributes:
+class Book < ActiveRecord::Base
+  has_one :author
+  has_many :pages
+
+  accepts_nested_attributes_for :author, :pages
+end
