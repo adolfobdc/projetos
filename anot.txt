@@ -4,7 +4,7 @@ pry
 
 4] pry(main)> if a<b
 [4] pry(main)*   puts "OK"
-[4] pry(main)* end  
+[4] pry(main)* end
 OK
 => nil
 [5] pry(main)> while a<10
@@ -44,7 +44,7 @@ rails
 ##Bloco
 [22] pry(main)> array_b.each do |elm|
 [22] pry(main)*   puts elm
-[22] pry(main)* end  
+[22] pry(main)* end
 323
 teste
 => [323, "teste"]
@@ -57,8 +57,8 @@ teste
 [25] pry(main)> class Pessoa
 [25] pry(main)*   def falar
 [25] pry(main)*     puts "Falando"
-[25] pry(main)*   end  
-[25] pry(main)* end  
+[25] pry(main)*   end
+[25] pry(main)* end
 => :falar
 [26] pry(main)> pss = Pessoa.new
 => #<Pessoa:0x000055943ab3cd28>
@@ -115,7 +115,7 @@ enviando.....
 [16] pry(main)*   puts "Ola Ola Ola"
 [16] pry(main)*   yield
 [16] pry(main)*   puts "Oi OI OI"
-[16] pry(main)* end  
+[16] pry(main)* end
 => :ola
 [17] pry(main)> ola
 Ola Ola Ola
@@ -141,7 +141,7 @@ rails generate
 tabelas do banco de dados no plural - convencao
 rails generate scaffold customer name:string email:string birtday:date obs:text
 rails Generate Gera MVC nas pastas - gera um migrate no db
-migrate - 
+migrate -
 	timestamps
 		created_at
 		updated_at
@@ -160,7 +160,7 @@ VIEW
 
 MODELS
 ##ApplicationRecord
-	Framework que faz a ligacao da tabela com uma classe do ruby, model/custumer.rb , 
+	Framework que faz a ligacao da tabela com uma classe do ruby, model/custumer.rb ,
 	rails console - carrega todas as classes disponiveis
 	a = Customer.first
 	a.name - traz o nome que esta gravado na tabela
@@ -240,7 +240,7 @@ irb(main):015:0> w.save
 => true
 irb(main):016:0> w
 => #<Customer id: 4, name: "Aurora", email: "aurora@aurora", birtday: "2019-05-26", obs: "adasda", created_at: "2019-05-26 18:58:06", updated_at: "2019-05-26 18:58:06">
-irb(main):017:0> 
+irb(main):017:0>
 
 
 Filtros
@@ -255,7 +255,7 @@ PARTIALS
 	_sua_partial.html.erb
 
 HELPERS
-	
+
 i18n
 	Internacionalizacao
 	application.rb - config.i18n.default_locale = "pt-BR"
@@ -320,8 +320,8 @@ ARGV - retorna o parametro passado para o rake
 ENV - pega o valor do parametro passado no rake
 
 ##AULA 24 e 25
-Associacoes - 
-	belongs_to - pertence a 
+Associacoes -
+	belongs_to - pertence a
 	has_many - tem muitos
 rails g model Father name:string
 rails g model Child name:sting father:references
@@ -336,7 +336,7 @@ pai.children.create(name: "Aurora")
 add new coluns in table
 rails generate migration AddFieldsToFather cpf:string email:string occupation:references
 rake db:migrate
- 
+
 
 ##AULA 28 - Validacoes
 sempre em models:
@@ -391,7 +391,7 @@ end
 
 Foobar.instance.oi - so funciona assim
 
-Sigleton Class -  
+Sigleton Class -
 class << y
 	def ola
 		puts "ola"
@@ -430,3 +430,11 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :author, :pages
 end
 
+##AULA 38
+bundle install
+rails g devise:install
+rails g devise User
+cd /projetos/aula36/
+rake db:migrate
+rails s
+rails g devise:views users
