@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<h1>Pagina Principal</h1>
+<% if user_signed_in? %>
+<ul>
+  <li><%= current_user.email %></li>
+  <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+</ul>
+<% else %>
+ <ul>
+  <li><%= link_to "Cadastre-se", new_user_registration_path %></li>
+  <li><%= link_to "Logar", new_user_session_path %></li>
+</ul>
+<% end %>
+
+<ul>
+  <li><%= link_to "Clientes", customers_path %></li>
+  <li><%= link_to "Produtos", products_path %></li>
+	<li><%= link_to "Enderecos", addresses_path %></li>
+  <li><%= link_to "Usuarios", control_users_index_path %></li>
+</ul>
