@@ -1,0 +1,17 @@
+ require_relative "pes"
+
+class PessoaJuridica < Pessoa
+	attr_accessor :cnpj
+	attr_accessor :fantasia
+end
+
+a = PessoaJuridica.new
+a.nome = "TEste"
+a.endereco = "Rua"
+a.cnpj = "13123123123"
+a.fantasia = "Loja"
+
+puts a.nome
+puts a.endereco
+puts a.cnpj
+puts a.fantasia

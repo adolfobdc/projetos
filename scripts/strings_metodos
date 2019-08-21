@@ -1,0 +1,23 @@
+a = {a: 123, b: 321}
+puts a
+puts "Classe: #{a.class}"
+puts "Object ID: #{a.object_id}"
+puts "Length: #{a.length}"
+puts "Size: #{a.size}"
+puts "Count #{a.count}"
+
+texto = "Ruby on Rails"
+puts texto.gsub("Rails", "Rails 5.0")
+puts texto
+puts texto.gsub!("Rails", "Rails 5.0")
+puts texto
+
+b = [10, 20, 30]
+b.push("40")
+puts "Valor Array alterado push #{b}"
+b.unshift("50")
+puts "Valor Array alterado unshift #{b}"
+b.pop
+puts "Valor Array alterado pop #{b}"
+b.shift
+puts "Valor Array alterado shift #{b}"

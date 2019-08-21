@@ -1,0 +1,15 @@
+
+class Pessoa
+	def falar
+		puts "Falando"
+	end
+
+	def ouvir
+		puts "Ouvindo"
+	end
+end
+
+
+pss = Pessoa.new
+pss.falar
+pass.ouvir

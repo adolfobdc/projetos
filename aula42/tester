@@ -1,0 +1,21 @@
+puts "Digite o seu nome"
+nome = gets.chomp
+puts "Seu Nome e #{nome}"
+puts "A Classe da variavel é #{nome.class}"
+puts "O Object ID da sua variável é #{nome.object_id}"
+puts "Inspecionando elemento: #{nome.inspect}"
+puts "Digite sua idade"
+idade = gets.chomp.to_i
+puts "Sua idade é #{idade}"
+puts "Daqui 10 anos sua idade será: #{idade + 10}"
+
+if idade<=17
+	puts "Menor de idade"
+else
+	puts "Maior de idade"
+end
+
+while idade>0
+	puts idade
+	idade -= 1
+end

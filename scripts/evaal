@@ -1,0 +1,4 @@
+class TesteEval(nome)
+	eval nome.chomp
+	puts nome
+end

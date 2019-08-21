@@ -1,0 +1,8 @@
+
+
+def teste (a, b)
+	puts a
+	puts b
+end
+
+teste 1, 2

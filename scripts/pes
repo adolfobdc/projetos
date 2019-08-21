@@ -1,0 +1,13 @@
+class Pessoa
+	attr_accessor :nome
+	attr_accessor :endereco
+end
+
+a = Pessoa.new
+a.nome = "Adolfo"
+a.endereco = "Eua"
+
+puts a.class
+puts a.nome
+puts a.endereco
+

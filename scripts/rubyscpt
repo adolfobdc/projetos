@@ -1,0 +1,3 @@
+a = %x(df -lh)
+puts a
+puts a.gsub("tmpfs","")
